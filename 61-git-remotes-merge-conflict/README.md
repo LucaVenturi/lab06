@@ -11,9 +11,37 @@ Prima di eseguire ogni operazione sul worktree o sul repository,
 si verifichi lo stato del repository con `git status`.
 
 1. Si cloni localmente il repository
+
+Cloning into 'OOP-git-merge-conflict-test'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 12 (delta 1), reused 1 (delta 1), pack-reused 8
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (2/2), done.
+
+git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
 2. Ci si assicuri di avere localmente entrambi i branch remoti
+
+git log --graph --oneline
+* 8e0f29c (HEAD -> master, origin/master, origin/HEAD) Change HelloWorld to print the number of available processors
+* d956df6 Create .gitignore
+* 700ee0b Create HelloWorld
+
 3. Si faccia il merge di `feature` dentro `master`, ossia: si posizioni la `HEAD` su `master`
    e da qui si esegua il merge di `feature`
+
+git merge origin/feature
+
+risolvo il conflitto
+
+faccio git add e commit
+
 4. Si noti che viene generato un **merge conflict**!
 5. Si risolva il merge conflict come segue:
    - Il programma Java risultante deve stampare sia il numero di processori disponibili
